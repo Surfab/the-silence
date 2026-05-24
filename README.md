@@ -35,7 +35,8 @@ A compact floating widget (300×115px) with glassmorphism blur stays above all o
 
 ## Screenshots
 
-> Add your screenshots here.
+<img width="2150" height="1562" alt="Screenshot 17" src="https://github.com/user-attachments/assets/a944a821-ab0c-4700-91f6-ad2d5885d4a6" />
+
 
 ---
 
