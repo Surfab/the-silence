@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 300px; height: 115px;
+      background: transparent;
+      overflow: hidden;
+      user-select: none; -webkit-user-select: none;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .widget {
+      position: relative;
+      width: 300px; height: 115px;
+      background: rgba(18,18,18,0.76);
+      backdrop-filter: blur(28px) saturate(1.8);
+      -webkit-backdrop-filter: blur(28px) saturate(1.8);
+      border-radius: 20px;
+      border: 0.5px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.07);
+      display: flex; align-items: center;
+      padding: 14px; gap: 12px;
+      -webkit-app-region: drag;
+    }
+    .art {
+      width: 68px; height: 68px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.07);
+      flex-shrink: 0; overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+      -webkit-app-region: no-drag;
+    }
+    .art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .art-ph {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .info {
+      flex: 1; min-width: 0;
+      display: flex; flex-direction: column; gap: 2px;
+      -webkit-app-region: no-drag;
+    }
+    .track-title {
+      font-size: 12.5px; font-weight: 600;
+      color: rgba(255,255,255,0.92);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      letter-spacing: -0.1px;
+    }
+    .track-artist {
+      font-size: 11px; color: rgba(255,255,255,0.42);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .prog-row {
+      display: flex; align-items: center; gap: 5px; margin-top: 4px;
+    }
+    .prog-bar {
+      flex: 1; height: 2px;
+      background: rgba(255,255,255,0.14);
+      border-radius: 2px; cursor: pointer;
+    }
+    .prog-fill {
+      height: 100%; background: rgba(255,255,255,0.75);
+      border-radius: 2px; width: 0%;
+    }
+    .prog-time {
+      font-size: 9px; color: rgba(255,255,255,0.3);
+      font-variant-numeric: tabular-nums; flex-shrink: 0;
+    }
+    .ctrl-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 2px; margin-top: 5px;
+    }
+    .btn {
+      background: none; border: none;
+      color: rgba(255,255,255,0.65);
+      cursor: pointer; padding: 3px 6px;
+      border-radius: 5px; display: flex; align-items: center;
+      transition: color 0.12s;
+    }
+    .btn:hover { color: #fff; }
+    .btn.play { color: rgba(255,255,255,0.9); }
+    .x-btn {
+      position: absolute; top: 7px; right: 8px;
+      width: 16px; height: 16px;
+      background: rgba(255,255,255,0.1);
+      border: none; border-radius: 50%;
+      color: rgba(255,255,255,0.4);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 8px; line-height: 1;
+      transition: background 0.15s, color 0.15s;
+      -webkit-app-region: no-drag;
+    }
+    .x-btn:hover { background: rgba(220,50,50,0.6); color: #fff; }
+  </style>
+</head>
+<body>
+<div class="widget">
+  <div class="art" id="art">
+    <div class="art-ph">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1">
+        <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+      </svg>
+    </div>
+  </div>
+  <div class="info">
+    <div class="track-title" id="track-title">The Silence</div>
+    <div class="track-artist" id="track-artist"></div>
+    <div class="prog-row">
+      <div class="prog-bar" id="prog-bar">
+        <div class="prog-fill" id="prog-fill"></div>
+      </div>
+      <span class="prog-time" id="prog-time">0:00</span>
+    </div>
+    <div class="ctrl-row">
+      <button class="btn" id="btn-prev">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+      </button>
+      <button class="btn play" id="btn-play">
+        <svg id="icon-play" width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.13)"/><polygon points="10 8 18 12 10 16"/>
+        </svg>
+        <svg id="icon-pause" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+          <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.13)"/>
+          <rect x="8" y="8" width="3" height="8"/><rect x="13" y="8" width="3" height="8"/>
+        </svg>
+      </button>
+      <button class="btn" id="btn-next">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+      </button>
+    </div>
+  </div>
+  <button class="x-btn" id="x-btn">✕</button>
+</div>
+<script>
+  function fmt(s) {
+    if (!s || isNaN(s)) return '0:00';
+    return `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+  }
+
+  window.electronAPI.onWidgetUpdate(data => {
+    if (data.title  !== undefined) document.getElementById('track-title').textContent  = data.title  || '—';
+    if (data.artist !== undefined) document.getElementById('track-artist').textContent = data.artist || '';
+    if (data.hasOwnProperty('artUrl')) {
+      const art = document.getElementById('art');
+      art.innerHTML = data.artUrl
+        ? `<img src="${data.artUrl}" alt="">`
+        : `<div class="art-ph"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>`;
+    }
+    if (data.hasOwnProperty('playing')) {
+      document.getElementById('icon-play').style.display  = data.playing ? 'none'  : 'block';
+      document.getElementById('icon-pause').style.display = data.playing ? 'block' : 'none';
+    }
+    if (data.hasOwnProperty('progress'))    document.getElementById('prog-fill').style.width = (data.progress * 100) + '%';
+    if (data.hasOwnProperty('currentTime')) document.getElementById('prog-time').textContent  = fmt(data.currentTime);
+  });
+
+  document.getElementById('btn-play').addEventListener('click', () => window.electronAPI.widgetCmd('play'));
+  document.getElementById('btn-prev').addEventListener('click', () => window.electronAPI.widgetCmd('prev'));
+  document.getElementById('btn-next').addEventListener('click', () => window.electronAPI.widgetCmd('next'));
+  document.getElementById('x-btn').addEventListener('click',   () => window.electronAPI.widgetCmd('close'));
+  document.getElementById('prog-bar').addEventListener('click', e => {
+    const r = document.getElementById('prog-bar').getBoundingClientRect();
+    window.electronAPI.widgetCmd('seek', (e.clientX - r.left) / r.width);
+  });
+</script>
+</body>
+</html>

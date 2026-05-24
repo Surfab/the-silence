@@ -1,0 +1,52 @@
+{
+  "name": "the-silence",
+  "version": "1.0.0",
+  "description": "The Silence – media player",
+  "main": "main.js",
+  "scripts": {
+    "start": "env -u ELECTRON_RUN_AS_NODE electron .",
+    "pack": "electron-builder build --mac --dir"
+  },
+  "dependencies": {
+    "jsmediatags": "^3.9.5"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.fabri.thesilence",
+    "productName": "The Silence",
+    "mac": {
+      "category": "public.app-category.music",
+      "fileAssociations": [
+        {
+          "ext": [
+            "mp3",
+            "flac",
+            "wav",
+            "aac",
+            "ogg",
+            "m4a",
+            "mp4",
+            "mkv",
+            "mov",
+            "avi",
+            "webm",
+            "m4v"
+          ],
+          "name": "Media File",
+          "role": "Viewer"
+        }
+      ]
+    },
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist/**",
+      "!node_modules/.cache/**"
+    ]
+  }
+}
