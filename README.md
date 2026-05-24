@@ -4,6 +4,12 @@ A minimal, elegant media player for macOS built with Electron.
 
 ![The Silence](https://img.shields.io/badge/platform-macOS-lightgrey) ![Electron](https://img.shields.io/badge/electron-33-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
+## Download
+
+**[Download The Silence v1.0.0 (DMG – Apple Silicon)](https://github.com/Surfab/the-silence/releases/download/v1.0.0/The.Silence-1.0.0-arm64.dmg)**
+
+> The app is unsigned. On first launch: right-click → Open.
+
 ---
 
 ## Features
@@ -53,6 +59,7 @@ cd the-silence
 npm install
 npm start          # development
 npm run pack       # build .app in dist/mac-arm64/
+npm run dist       # build DMG installer in dist/
 ```
 
 To install the built app system-wide:
