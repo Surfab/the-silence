@@ -1,6 +1,8 @@
 # The Silence
 
 A minimal, elegant media player for macOS built with Electron.
+<img width="2150" height="1562" alt="Screenshot" src="https://github.com/user-attachments/assets/ad1a3412-2099-4ef6-9f33-fe95791fd715" />
+
 
 ![The Silence](https://img.shields.io/badge/platform-macOS-lightgrey) ![Electron](https://img.shields.io/badge/electron-33-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
