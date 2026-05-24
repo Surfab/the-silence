@@ -20,6 +20,13 @@ Un media player minimale ed elegante per macOS, costruito con Electron.
 
 > L'app non è firmata. Al primo avvio: tasto destro → Apri.
 
+### Via Homebrew
+
+```bash
+brew tap Surfab/tap
+brew install --cask the-silence
+```
+
 ### Funzionalità
 
 - **Riproduzione audio e video** — MP3, FLAC, WAV, AAC, OGG, M4A (incluso ALAC), MP4, MKV, MOV, AVI, WebM
@@ -97,6 +104,13 @@ A minimal, elegant media player for macOS built with Electron.
 **[Download The Silence v1.0.0 (DMG – Apple Silicon)](https://github.com/Surfab/the-silence/releases/download/v1.0.0/The.Silence-1.0.0-arm64.dmg)**
 
 > The app is unsigned. On first launch: right-click → Open.
+
+### Via Homebrew
+
+```bash
+brew tap Surfab/tap
+brew install --cask the-silence
+```
 
 ### Features
 
