@@ -54,7 +54,15 @@ Un widget flottante compatto (300×115px) con effetto glassmorphism rimane sopra
 
 ### Screenshot
 
-<img width="2150" height="1562" alt="Screenshot" src="https://github.com/user-attachments/assets/a944a821-ab0c-4700-91f6-ad2d5885d4a6" />
+<details>
+  <summary>Screenshot</summary>
+
+![Player](https://raw.githubusercontent.com/Surfab/the-silence/main/immagini/Screenshot%2019.jpg)
+![Libreria](https://raw.githubusercontent.com/Surfab/the-silence/main/immagini/Screenshot%2021.jpg)
+![Widget](https://raw.githubusercontent.com/Surfab/the-silence/main/immagini/Screenshot%2020.jpg)
+
+
+</details>
 
 ### Requisiti
 
@@ -139,7 +147,15 @@ A compact floating widget (300×115px) with glassmorphism blur stays above all o
 
 ### Screenshot
 
-<img width="2150" height="1562" alt="Screenshot" src="https://github.com/user-attachments/assets/a944a821-ab0c-4700-91f6-ad2d5885d4a6" />
+<details>
+  <summary>Screenshot</summary>
+
+![Player](https://raw.githubusercontent.com/Surfab/the-silence/main/immagini/Screenshot%2019.jpg)
+![Library](https://raw.githubusercontent.com/Surfab/the-silence/main/immagini/Screenshot%2021.jpg)
+![Widget](https://raw.githubusercontent.com/Surfab/the-silence/main/immagini/Screenshot%2020.jpg)
+
+
+</details>
 
 ### Requirements
 
