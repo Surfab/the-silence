@@ -92,6 +92,15 @@ npm run dist       # genera il DMG in dist/
 | Lettura tag | jsmediatags |
 | Packaging | electron-builder |
 
+### What's next
+
+- [ ] Equalizzatore a 10 bande
+- [ ] Scrobbling Last.fm
+- [ ] Supporto cartelle watched (auto-import)
+- [ ] Temi colore personalizzabili
+- [ ] Notifiche macOS al cambio traccia
+- [ ] Esporta playlist in formato M3U
+
 ### Licenza
 
 MIT
@@ -184,6 +193,15 @@ npm run dist       # build DMG installer in dist/
 | Audio (ALAC/M4A) | Web Audio API → CoreAudio |
 | Tag reading | jsmediatags |
 | Packaging | electron-builder |
+
+### What's next
+
+- [ ] 10-band equalizer
+- [ ] Last.fm scrobbling
+- [ ] Watched folders (auto-import)
+- [ ] Custom color themes
+- [ ] macOS notifications on track change
+- [ ] Export playlists as M3U
 
 ### License
 
